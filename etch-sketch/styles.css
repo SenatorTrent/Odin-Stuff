@@ -1,4 +1,32 @@
 .container{
     color: red;
-    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:960px;
+    width:960px;
+
+    outline:3px solid darkred;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    width: 960px;
+    flex:1 1 auto;
+}
+.etchSquare{
+    /*outline: 2px solid black;*/
+    text-align: center;
+    flex:1 1 auto;
+}
+
+.darkened{
+    background-color: black;
+}
+
+button{
+    margin:auto;
+    margin-bottom: 50px;
+    display:block
 }
