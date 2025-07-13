@@ -1,0 +1,9 @@
+li{
+    list-style-type: none;
+    margin:10px;
+}
+.winning-text{
+    font-weight: bold;
+    font-size: 20px;
+    margin:30px;
+}
