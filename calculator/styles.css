@@ -1,0 +1,36 @@
+*{
+    outline: 2px solid red;
+}
+
+.cal-body{
+    display: flex;
+    flex-direction: column;
+}
+
+#input-box{
+    background-color: gainsboro;
+    width:300px;
+}
+.keys{
+    display: flex;
+    flex-direction: row;
+}
+
+.num-keys, .sym-keys{
+    display: flex;
+    flex-flow:row wrap;
+    width:150px;
+}
+
+.num-btn, .sym-btn{
+    width: 50px;
+    height:50px;
+    flex: 0 0 auto;
+}
+#clear{
+    width: 150px;
+}
+
+#one{
+    font-weight: bold;
+}
