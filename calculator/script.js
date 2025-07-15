@@ -19,18 +19,36 @@ let inputArgs = [];
 
 
 //Takes sym (not list) and numbers a b
-function operate(a, b, sym){
+function operate(arr){
+
+    res = null;
+    a = Number(arr[0]);
+    b = Number(arr[1]);
+    sym = arr[2];
+
     switch (sym){
         case "+":
             res= plus(a,b);
+            break;
         case "-":
             res= minus(a,b);
+            break;
         case "/":
             res= divide(a,b);
+            if (b==0){
+                alert("Division by Zero? How dare you! Deleting website...")
+                const root = document.getRootNode()
+                root.lastChild.remove()
+            }
+            break;
         case "*":
             res= multiply(a,b);
-        return Math.round(res*100)/100
+            break;
     }
+    res = Math.round(res*100)/100;
+    inputBox.textContent = res;
+    inputArgs.fill(undefined);
+    return res;
 }
 
 function sendBtn(e){
@@ -55,11 +73,8 @@ function onInput(char){
                 inputBox.textContent = "Input:";
                 return;
             case "=":
-                num1 = Number(inputArgs[0])
-                num2 = Number(inputArgs[1])
-                sym = inputArgs[2]
-                let result = operate(num1, num2, sym);
-                inputBox.textContent = result;
+                result = operate(inputArgs);
+                //inputArgs[0] = result;
                 return;
         }
     }
@@ -72,6 +87,9 @@ function onInput(char){
         inputBox.textContent = inputArgs[0];
     }
     else if (isSym){
+        if (inputArgs[2] != undefined && inputArgs[1] != undefined){
+            inputArgs[0]=operate(inputArgs);
+        }
         inputArgs[2] = char;
     }
     else if ( inputArgs[0] != undefined && inputArgs[2] != undefined && !isSym){
